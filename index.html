@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SeekOut Signal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="rotate-warning">
+  ROTATE YOUR PHONE<br>
+  TO LANDSCAPE
+  </div>
+
+
+  <!-- TAP TO START (REQUIRED FOR MOBILE AUDIO) -->
+  <div id="tap-to-start">TAP TO BEGIN TRANSMISSION</div>
+
+  <!-- INTRO VIDEO 1 -->
+  <video id="intro-video-1" playsinline>
+    <source src="background1.MP4" type="video/MP4">
+  </video>
+
+  <!-- INTRO VIDEO 2 -->
+  <video id="intro-video-2" playsinline class="hidden">
+    <source src="background2.mp4" type="video/mp4">
+  </video>
+
+  <!-- NAME SCREEN BACKGROUND VIDEO -->
+  <video id="name-video" loop playsinline class="hidden">
+    <source src="background3.MP4" type="video/MP4">
+  </video>
+
+  <!-- MAIN STORY VIDEO -->
+  <video id="bg-video" loop playsinline class="hidden">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay hidden"></div>
+
+  <!-- CONTENT -->
+  <div id="content" class="hidden">
+
+    <div class="screen" id="screen-name">
+      <p class="glitch big">SIGNAL DETECTED</p>
+      <input id="username" placeholder="ENTER YOUR NAME">
+      <button onclick="startSignal()">RESPOND</button>
+    </div>
+
+    <div class="screen hidden" id="screen-story">
+      <p id="story-text" class="story"></p>
+      <button onclick="startTest()">READY TO HELP</button>
+    </div>
+
+    <div class="screen hidden" id="screen-question">
+      <p class="glitch">TEST INCOMING</p>
+      <p id="question-text" class="story"></p>
+      <input id="answer" placeholder="YOUR ANSWER">
+      <button onclick="submitAnswer()">TRANSMIT</button>
+    </div>
+
+    <div class="screen hidden" id="screen-success">
+      <p class="glitch big">SIGNAL DISRUPTED</p>
+      <p class="story highlight">YOU SAW WHAT OTHERS MISSED</p>
+     <img src="seekoutlogo.jpeg" alt="SeekOut Logo" class="final-logo">
+       <p class="story">INSTI’S BIGGEST CRYPT HUNT </p> 
+<p class="story">The game goes live at 10PM on 16th January, Friday </p>
+
+<a href="https://seekout.sarc-iitb.org/" target="_blank" class="register-btn">
+  REGISTER NOW
+</a>
+
+    </div>
+
+    <div class="screen hidden" id="screen-fail">
+      <p class="glitch big">SIGNAL STILL PERSISTS</p>
+      <p class="story">THE HINT ESCAPED YOU</p>
+      <img src="seekoutlogo.jpeg" alt="SeekOut Logo" class="final-logo">
+         <p class="story">INSTI’S BIGGEST CRYPT HUNT </p> 
+<p class="story">The game goes live at 10PM on 16th January, Friday </p>
+
+<a href="https://seekout.sarc-iitb.org/" target="_blank" class="register-btn">
+  REGISTER NOW
+</a>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
