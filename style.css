@@ -1,0 +1,222 @@
+body {
+  margin: 0;
+  background: black;
+  color: #e50914;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+/* VIDEOS */
+/* ===============================
+   VIDEO BASE (ALL DEVICES)
+   =============================== */
+/* ===============================
+   VIDEO BASE (ALL DEVICES)
+   =============================== */
+video {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: -5;
+}
+
+
+
+/* TAP SCREEN */
+#tap-to-start {
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: #e50914;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  letter-spacing: 2px;
+  z-index: 50;
+  cursor: pointer;
+}
+
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: -3;
+}
+
+/* CONTENT */
+#content {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+
+  /* ADD THIS */
+  visibility: hidden;
+}
+
+
+.screen {
+  text-align: center;
+  padding: 28px 30px;
+  background: rgba(0, 0, 0, 0.78);
+  border: 1px solid rgba(229, 9, 20, 0.45);
+  backdrop-filter: blur(6px);
+
+  width: 90%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  animation: float 6s ease-in-out infinite;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.big { font-size: 30px; }
+.story { font-size: 17px; margin: 12px auto; }
+
+input,
+button {
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+
+
+button {
+  background: #e50914;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.glitch {
+  animation: flicker 1.4s infinite;
+}
+
+@keyframes flicker {
+  0%,100% { opacity:1; }
+  50% { opacity:0.6; }
+}
+/* ===============================
+   ROTATE TO LANDSCAPE (FINAL FIX)
+   =============================== */
+#rotate-warning {
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: #e50914;
+  font-family: 'Cinzel', serif;
+  font-size: 22px;
+  letter-spacing: 2px;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  z-index: 10000;
+}
+
+/* PHONE IN PORTRAIT */
+@media (orientation: portrait) {
+  #rotate-warning {
+    display: flex;
+  }
+
+  /* FORCE HIDE EVERYTHING ELSE */
+  #tap-to-start,
+  video,
+  #content,
+  .overlay {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* PHONE IN LANDSCAPE */
+@media (orientation: landscape) {
+  #rotate-warning {
+    display: none;
+  }
+
+  /* DO NOT force display here */
+}
+
+/* ===============================
+   MOBILE RESPONSIVE VIDEO FIX
+   =============================== */
+/* @media (max-width: 768px) {
+  video {
+    object-fit: contain; 
+  }
+} */
+
+/* ===============================
+   FIRST VIDEO — NEVER CROP
+   =============================== */
+/* ======================================
+   FIRST VIDEO — HORIZONTAL FIT (NO CROP)
+   ====================================== */
+#intro-video-1 {
+  width: 100vw;          /* fit by width */
+  height: auto;          /* let height scale */
+  max-height: 100dvh;    /* never overflow screen */
+
+  object-fit: contain;   /* no crop */
+  object-position: center;
+
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* ======================================
+   OTHER VIDEOS — FULLSCREEN CINEMATIC
+   ====================================== */
+video:not(#intro-video-1) {
+  width: 100vw;
+  height: 100dvh;
+  object-fit: cover;
+  object-position: center;
+}
+/* ===============================
+   FINAL SCREEN LOGO
+   =============================== */
+.final-logo {
+  width: 320px;
+  max-width: 90%;
+  margin: 16px 0 12px;
+  filter: drop-shadow(0 0 18px rgba(229,9,20,0.8));
+}
+
+
+/* ===============================
+   REGISTER BUTTON
+   =============================== */
+.register-btn {
+  margin-top: 14px;
+  padding: 12px 18px;
+  background: #e50914;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border-radius: 4px;
+  transition: 0.2s ease;
+}
+
+.register-btn:hover {
+  background: #ff2a2a;
+  transform: scale(1.05);
+}
